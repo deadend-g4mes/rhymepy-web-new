@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="A web version of rhymepy, a simple CLI program that highlights rhymes in a given text">
+        <!-- remove default browser styles -->
+        <link rel="stylesheet" href="./css/normalize.css">
+        <link rel="stylesheet" href="./css/styles.css">
+        <link rel="icon" href="favicon.svg">
+        <title>Rhymepy web</title>
+    </head>
+
+    <body>
+        <dialog id="loading">
+            <h1>Loading...</h1>
+        </dialog>
+
+            <div class="container">
+    
+                <!-- Logo & subtitle -->
+                <div class="header">
+                    <h1 class="logo-text">Rhymepy</h1>
+                    <p>Analyze your rhymes</p>
+                </div>
+    
+                <!-- Main content -->
+                <div class="flex-container">
+    
+                    <!-- Input text -->
+                    <textarea id="text" placeholder="Roses are red..."></textarea>
+    
+                    <!-- Output text -->
+                    <div class="output-container hidden">
+                        <p class="output"></p>
+                        <div id="reset-button"><button class="btn">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                            </button></div>
+                    </div>
+    
+                    <div id="progressbar" class="hidden">
+                        <div id="progressbarOuter">
+                            <div id="progressbarInner"></div>
+                            <div id="progressbarPercentage"></div>
+                        </div>
+                        <div id="progressbarText"></div>
+                    </div>
+    
+                    <!-- Middle section: button, loading & options -->
+                    <div class="middle-section">
+                        <div class="options-flex">
+                            <label class="group-label">Highlight:</label>
+                            <div class="rhyming-options radio-container">
+                                <div>
+                                    <input type="radio" name="rhyming-options" id="perfect-rhymes" value=0>
+                                    <label for="perfect-rhymes">Perfect rhymes</label>
+                                </div>
+                                <div>
+                                    <input type="radio" name="rhyming-options" id="near-rhymes" value=1>
+                                    <label for="near-rhymes">Near rhymes</label>
+                                </div>
+                                <div>
+                                    <input type="radio" name="rhyming-options" id="both" value=2 checked>
+                                    <label for="both">Both</label>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="button-loading">
+                            <div id="spinner" class="hidden">
+                                <div class="rect1"></div>
+                                <div class="rect2"></div>
+                                <div class="rect3"></div>
+                                <div class="rect4"></div>
+                                <div class="rect5"></div>
+                            </div>
+                            <button class="btn analyze-button">Analyze rhymes</button>
+                            <div id="text-reset">reset</div>
+                        </div>
+    
+                        <div class="methods-flex">
+                            <div>
+                                <label class="group-label">Match by:</label>
+                                <div class="rhyming-methods radio-container">
+                                    <div>
+                                        <input type="radio" name="rhyming-methods" id="stanza" value=0 checked>
+                                        <label for="stanza">Stanza</label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" name="rhyming-methods" id="all" value=2>
+                                        <label for="all">All text</label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" name="rhyming-methods" id="lines" value=1>
+                                        <label for="lines">Lines</label>
+                                        <input class="line-input" type="number" min="1" max="999" placeholder="4" name="lines-value" id="lines-value">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                </div>
+    
+    
+            </div>
+    
+            </div>
+    
+            <!-- All the fun stuff happens here -->
+            <section class="pyscript">
+                <div id="folium"></div>
+                <script type="py" src="./python/main.py" config="./pyscript.toml"></script>
+            </section>
+        </body>
+
+</html>
