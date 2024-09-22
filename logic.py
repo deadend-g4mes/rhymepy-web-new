@@ -1,0 +1,1 @@
+colors = ["Gold", "MediumTurquoise", "LightCoral", "LightGreen", "LawnGreen", "LightPink", "LightSalmon", "LightSkyBlue", "Orange", "Violet", "Plum", "PaleTurquoise", "Bisque"]
