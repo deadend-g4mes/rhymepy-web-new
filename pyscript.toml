@@ -1,3 +1,4 @@
-name = "Folium"
-description = "A web version of rhymepy, a simple CLI program that highlights rhymes in a given text"
-packages = ["folium"]
+name = "rhymepy"
+
+[files]
+"./logic.py" = ""
